@@ -5,15 +5,16 @@
 <h1 align="center">Chanchito</h1>
 
 <p align="center">
-  <strong>App de finanzas personales local-first — sin backend, sin base de datos externa, con privacidad total y respaldos cifrados.</strong>
+  <strong>App de finanzas personales local-first — sin backend, sin base de datos externa, con privacidad total y respaldos cifrados. PWA instalable y app nativa para iPhone a partir del mismo código.</strong>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/PWA-Installable-5A0FC8?style=flat-square" alt="PWA">
+  <img src="https://img.shields.io/badge/iOS-Capacitor%20%2B%20Face%20ID-000000?style=flat-square&logo=apple&logoColor=white" alt="iOS">
   <img src="https://img.shields.io/badge/JavaScript-Vanilla%20(No%20Framework)-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="Vanilla JS">
   <img src="https://img.shields.io/badge/Build%20Step-None%20(100%25%20Static)-success?style=flat-square" alt="No Build Step">
-  <img src="https://img.shields.io/badge/Storage-100%25%20Local%20(localStorage)-blue?style=flat-square" alt="LocalStorage">
-  <img src="https://img.shields.io/badge/Import-OCR%20%2B%20Claude%20Haiku%20%2B%20Gmail-CC785C?style=flat-square" alt="Import Methods">
+  <img src="https://img.shields.io/badge/Storage-100%25%20Local-blue?style=flat-square" alt="Local storage">
+  <img src="https://img.shields.io/badge/Import-CSV%20%C2%B7%20PDF%20%C2%B7%20OCR%20%C2%B7%20Gmail%20%C2%B7%20Apple%20Pay-CC785C?style=flat-square" alt="Import Methods">
   <img src="https://img.shields.io/badge/Security-PBKDF2%20PIN%20%2B%20AES--GCM-darkgreen?style=flat-square" alt="Security">
 </p>
 
@@ -25,144 +26,158 @@
 
 ## 📸 Capturas de Pantalla
 
-_Todas las cifras de estas capturas son datos sintéticos generados para demostración — no representan información financiera real._
+_Todas las cifras, saldos, comercios y movimientos de estas capturas son **datos sintéticos** generados por un script determinístico — no representan información financiera real. Capturas en viewport de iPhone (390×844 @3x), tema oscuro._
 
-<p align="center">
-  <img src="docs/screenshots/01-dashboard.png" alt="Dashboard Principal" width="800">
-  <br>
-  <em><strong>1. Dashboard Principal</strong>: KPIs de flujo neto y disponible por moneda, widget de próximos compromisos a 14 días, gráfico de gastos históricos, donut interactivo por categoría y proyección de saldo a 45 días.</em>
-</p>
+### Resumen y movimientos
 
-<p align="center">
-  <img src="docs/screenshots/02-plan-deudas.png" alt="Plan de Deudas y Estrategia Avalancha" width="800">
-  <br>
-  <em><strong>2. Plan de Deudas & Avalancha</strong>: Calculadora de amortización por tarjeta y simulador interactivo de cascada por TEA (Avalancha) con análisis de impacto de ahorro en presupuestos.</em>
-</p>
+<table>
+  <tr>
+    <td width="33%" valign="top"><img src="docs/screenshots/01-resumen.png" alt="Resumen"></td>
+    <td width="33%" valign="top"><img src="docs/screenshots/02-resumen-graficos.png" alt="Gráficos de gasto"></td>
+    <td width="33%" valign="top"><img src="docs/screenshots/03-movimientos-revision.png" alt="Movimientos por revisar"></td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><strong>Resumen.</strong> Flujo neto del mes (caja real, no "ingresos − gastos"), saldo en cuentas, control diario de extractos y conciliaciones, y próximos compromisos a 14 días.</sub></td>
+    <td valign="top"><sub><strong>Gasto en el tiempo.</strong> Barras de 6/12 meses con vista apilada por categoría y donut interactivo, dibujados a mano en SVG sin librerías.</sub></td>
+    <td valign="top"><sub><strong>Inbox de revisión.</strong> Todo lo importado entra como "por revisar" hasta que lo confirmas; búsqueda, filtros, selección múltiple y edición masiva.</sub></td>
+  </tr>
+</table>
 
-<p align="center">
-  <img src="docs/screenshots/03-importar-revision.png" alt="Inbox de Revisión Rápida de Transacciones" width="800">
-  <br>
-  <em><strong>3. Revisión Editable de Importación (OCR / IA / Gmail / CSV)</strong>: Triage de movimientos importados con detección visual de cuenta, advertencias de duplicados y validación aritmética de balance antes de confirmar.</em>
-</p>
+### Importación sin confiar a ciegas
 
-<p align="center">
-  <img src="docs/screenshots/04-categoria-presupuesto.png" alt="Detalle de Categoría y Presupuesto" width="800">
-  <br>
-  <em><strong>4. Presupuestos con Conversión de Moneda en Vivo</strong>: Configuración de límites por categoría con rollover automático y conversión de tipo de cambio en tiempo real (PEN ↔ USD).</em>
-</p>
+<table>
+  <tr>
+    <td width="33%" valign="top"><img src="docs/screenshots/04-importacion-revision.png" alt="Revisión de importación"></td>
+    <td width="33%" valign="top"><img src="docs/screenshots/05-formatos-importacion.png" alt="Formatos de importación"></td>
+    <td width="33%" valign="top"><img src="docs/screenshots/14-captura-apple-pay.png" alt="Captura desde Apple Pay"></td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><strong>Revisión editable.</strong> CSV/Excel, PDF, foto y Gmail terminan siempre aquí antes de guardar. Detecta duplicados por cuenta + fecha + monto aunque la descripción cambie entre fuentes.</sub></td>
+    <td valign="top"><sub><strong>Formatos enseñables.</strong> Enseñas un correo o un CSV nuevo con 2–5 ejemplos, marcas los campos y se prueba contra todos antes de activarse. Sin código, sin IA, con versiones.</sub></td>
+    <td valign="top"><sub><strong>Captura desde Apple Pay.</strong> Un Atajo de iOS dispara <code>chanchito://capture</code> con comercio y monto en cada pago con Wallet; la app abre el registro ya prellenado.</sub></td>
+  </tr>
+</table>
 
-<p align="center">
-  <img src="docs/screenshots/05-calendario-agenda.png" alt="Calendario Financiero Unificado y Agenda" width="800">
-  <br>
-  <em><strong>5. Calendario Financiero Unificado & Agenda</strong>: Vista mensual y agenda a 45 días con conciliación automática de pagos recurrentes, cuotas y compromisos.</em>
-</p>
+### Control y patrimonio
 
-<p align="center">
-  <img src="docs/screenshots/06-simulador-predictivo.png" alt="Simulador Predictivo ¿Qué pasa si...?" width="800">
-  <br>
-  <em><strong>6. Simulador Predictivo "¿Qué pasa si...?"</strong>: Evaluación de impacto en flujo de caja ante gastos extraordinarios hipotéticos con diagnóstico de sobregiro y sugerencia de fecha segura.</em>
-</p>
+<table>
+  <tr>
+    <td width="33%" valign="top"><img src="docs/screenshots/06-conciliacion.png" alt="Conciliación bancaria"></td>
+    <td width="33%" valign="top"><img src="docs/screenshots/08-patrimonio-neto.png" alt="Patrimonio neto"></td>
+    <td width="33%" valign="top"><img src="docs/screenshots/09-coleccion-tcg.png" alt="Colección TCG"></td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><strong>Conciliación auditable.</strong> Parte del último saldo confirmado, eliges los movimientos y solo cierra con diferencia cero. El cierre bloquea esos movimientos y se invalida solo si cambia algo del periodo.</sub></td>
+    <td valign="top"><sub><strong>Patrimonio neto en USD.</strong> Cuentas + otros activos − deudas, con historial. "Otros activos" es genérico: una colección, un auto o una propiedad.</sub></td>
+    <td valign="top"><sub><strong>Colección ítem por ítem.</strong> Importa el CSV de TCGPlayer, muestra las cartas más valiosas en HD, la distribución por expansión y actualiza precios de mercado.</sub></td>
+  </tr>
+</table>
 
-<p align="center">
-  <img src="docs/screenshots/07-transacciones-seleccion-masiva.png" alt="Transacciones con Selección Múltiple y Clasificación ML" width="800">
-  <br>
-  <em><strong>7. Transacciones & Selección Múltiple</strong>: Búsqueda instantánea, filtros combinados, sugerencias por Machine Learning local (✨) y modo de edición/borrado masivo en lote.</em>
-</p>
+### Plan
 
-<p align="center">
-  <img src="docs/screenshots/08-patrimonio-colecciones.png" alt="Patrimonio Neto y Colecciones TCG" width="800">
-  <br>
-  <em><strong>8. Patrimonio Neto & Portafolio de Coleccionables</strong>: Consolidado en USD de cuentas, pasivos y activos coleccionables (cartas TCG) con carrusel visual de ítems de alto valor.</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/09-metas-ahorro.png" alt="Metas de Ahorro y Págate Primero" width="800">
-  <br>
-  <em><strong>9. Metas de Ahorro & "Págate Primero"</strong>: Reservas de ahorro y fondos de emergencia con avance porcentual y cálculo automático de ritmo sugerido mensual.</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/10-captura-rapida.png" alt="Acceso Rápido Global" width="800">
-  <br>
-  <em><strong>10. Acceso Rápido Global (+)</strong>: Modal optimizado para captura instantánea de gastos, ingresos y transferencias en un solo toque.</em>
-</p>
+<table>
+  <tr>
+    <td width="33%" valign="top"><img src="docs/screenshots/10-plan-calendario.png" alt="Calendario financiero"></td>
+    <td width="33%" valign="top"><img src="docs/screenshots/07-plan-deudas-avalancha.png" alt="Deudas y avalancha"></td>
+    <td width="33%" valign="top"><img src="docs/screenshots/11-simulador.png" alt="Simulador ¿Qué pasa si...?"></td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><strong>Calendario financiero.</strong> Ingresos, gastos fijos, habituales, cuotas, metas y cierres de estado de cuenta en una vista mensual o agenda, conciliados contra los movimientos reales.</sub></td>
+    <td valign="top"><sub><strong>Deudas y avalancha.</strong> Calculadora de amortización por tarjeta con TEA real y simulador conjunto que concentra el excedente del presupuesto en la deuda más cara.</sub></td>
+    <td valign="top"><sub><strong>"¿Qué pasa si...?"</strong> Simula un gasto extraordinario sobre la proyección de 45 días: muestra el colchón mínimo, si habría sobregiro y la primera fecha segura.</sub></td>
+  </tr>
+  <tr>
+    <td valign="top"><img src="docs/screenshots/12-plan-metas.png" alt="Metas de ahorro"></td>
+    <td valign="top"><img src="docs/screenshots/13-notificaciones.png" alt="Centro de notificaciones"></td>
+    <td valign="top"><img src="docs/screenshots/15-bloqueo-pin.png" alt="Bloqueo con PIN"></td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><strong>Metas de ahorro.</strong> Asignaciones (no cuentas) con aportes reversibles, ritmo sugerido mensual/semanal y opción "Págate primero" que las descuenta del flujo neto.</sub></td>
+    <td valign="top"><sub><strong>Centro de notificaciones.</strong> Pagos vencidos, cuotas por vencer, extractos listos para conciliar y suscripciones próximas, todo calculado en el dispositivo.</sub></td>
+    <td valign="top"><sub><strong>Bloqueo local.</strong> PIN de 6 dígitos (PBKDF2-SHA256) al abrir y tras 1 min en segundo plano; en la app de iOS se suma Face ID / Touch ID.</sub></td>
+  </tr>
+</table>
 
 ---
 
 ## 💡 El Problema
 
-Los gestores de finanzas comerciales convencionales (Mint, YNAB, hojas de cálculo) presentan limitaciones estructurales para usuarios con necesidades particulares:
-1. **Multi-moneda real y multi-país**: Manejo simultáneo de cuentas en Soles (PEN) y Dólares (USD) con tipos de cambio dinámicos y transacciones cruzadas.
-2. **Deudas complejas y cálculo de intereses**: Simulación de amortización con TEA/APR real, pagos mínimos y optimización de pago en cascada.
-3. **Patrimonio integral (activos no bancarios)**: Inclusión de colecciones de alto valor (cartas coleccionables TCG, inventarios) dentro del cálculo de patrimonio neto.
-4. **Privacidad y soberanía de datos**: Garantía absoluta de que la información bancaria y financiera personal jamás resida en servidores de terceros.
+Los gestores de finanzas comerciales (Mint, YNAB, hojas de cálculo) tienen limitaciones estructurales para usuarios con necesidades particulares:
+1. **Multi-moneda y multi-país real**: cuentas en Soles (PEN) y Dólares (USD) a la vez, tarjetas bimoneda y transferencias cruzadas con tipo de cambio.
+2. **Bancos sin integración**: en Perú no hay agregadores tipo Plaid; la información llega por correos, PDFs protegidos, exportaciones Excel o capturas.
+3. **Deudas complejas**: amortización con TEA/APR real, pagos mínimos y optimización de pago en cascada.
+4. **Patrimonio integral**: activos no bancarios (colecciones TCG, vehículos) dentro del patrimonio neto.
+5. **Privacidad**: la información financiera personal no debería vivir en servidores de terceros.
 
 ---
 
 ## ✅ La Solución
 
-**Chanchito** es una Progressive Web App (PWA) construida a medida con arquitectura *local-first*, que integra:
-- **Control de Flujo de Caja y Presupuestos**: KPIs en tiempo real, desglose de gastos y asignación mensual con rollover.
-- **Planificador Financiero Predictivo**: Calendario unificado de compromisos, conciliación automática contra movimientos reales y simulador interactivo *"¿Qué pasa si...?"* con diagnóstico de sobregiro.
-- **Gestor de Deudas con Estrategia Avalancha**: Calculadora de amortización matemática verificada y simulador de cascada por costo financiero.
-- **Patrimonio Neto Consolidado**: Cuentas bancarias + Activos/Coleccionables − Deudas en USD con historial evolutivo.
-- **Pipeline de Importación Multimodal**: Extractos CSV/Excel bancarios, OCR/IA multimodal para capturas/PDFs y sincronización automática vía Gmail API.
+**Chanchito** es una Progressive Web App construida a medida con arquitectura *local-first*, empaquetada también como app nativa de iOS:
+- **Flujo de caja y presupuestos**: KPIs por moneda, presupuestos con historial y rollover, ritmo de gasto (pacing).
+- **Plan financiero predictivo**: calendario unificado, conciliación automática contra movimientos reales, proyección a 45 días y simulador *"¿Qué pasa si...?"*.
+- **Gestor de deudas**: calculadora de amortización verificada y simulador Avalancha.
+- **Patrimonio neto consolidado**: cuentas + otros activos − deudas en USD con historial.
+- **Pipeline de importación por capas**: CSV/Excel con detección de formato, PDFs leídos localmente, OCR → IA solo con confirmación, Gmail (incluidos adjuntos), formatos enseñables y captura automática desde Apple Pay.
+- **Contabilidad auditable**: conciliaciones con diferencia cero, control de duplicados y transferencias internas emparejadas.
 
 ---
 
 ## 🏗️ Decisiones de Arquitectura y Casos Reales
 
-- **Local-first sin concesiones**: Cero frameworks, cero bundlers, cero build step. HTML/CSS/JS plano cargado directamente por el navegador. Todo el estado reside en `localStorage` (`finapp:v1`). Los datos financieros nunca abandonan el dispositivo.
-- **Sistema de Parsers Declarativos (*Declarative-first*)**: Los extractos de bancos se procesan mediante esquemas JSON declarativos (`declarative-parser-schema.js`) ejecutados por un motor agnóstico (`declarative-parser-engine.js`), permitiendo añadir soporte a nuevos formatos o generar parsers asistidos por IA sin tocar código fuente.
-- **Machine Learning Local en el Navegador**: Clasificador Naive Bayes local con tokenización bancaria, n-gramas y guardrails de seguridad (`category-classifier.js`) para sugerir categorías con alta precisión respetando siempre la precedencia de reglas declarativas del usuario.
-- **IA como último recurso, no como default**: El pipeline de documentos prioriza parsers locales (PDFs nativos), luego OCR dedicado (Google Vision), y únicamente ante capturas complejas recurre a LLM (Claude Haiku) con confirmación explícita del usuario.
-- **No pagar dos veces por el mismo documento & Forzado de IA**: Los resultados de extracción se almacenan en caché local indexados por hash SHA-256 del archivo y la cuenta elegida. Cuenta además con opción para forzar IA directa y un botón de invalidación/limpieza de caché granular para reanálisis inmediato.
-- **Motor de Transferencias Internas y Enlace Bimoneda**: Algoritmo de detección voraz 1:1 (`transfer-pairing.js`) que auto-vincula transferencias entre cuentas propias en background, soporta flujos puente multi-moneda con comisiones (ej. Visa Oro PEN → PayPal → BofA USD) y ofrece un historial interactivo con desvinculación atómica en 1 clic.
-- **Seguridad, Cifrado y Quirks de WebKit / iOS PWA**:
-  - Bloqueo de app con PIN local de 6 dígitos mediante hash **PBKDF2-SHA256** con salt aleatorio de 100,000 iteraciones (`app-lock.js`).
-  - **Zero Layout Shift en Lanzamiento Frío**: Diagnóstico y resolución de un quirk de WebKit en iOS donde `env(safe-area-inset-top)` resuelve a `0` en el primer layout pass de la PWA standalone antes de detectar el notch/Dynamic Island, solucionado mediante un clamp protector `max(83px, calc(var(--safe-top) + 24px))`.
-  - **Teclado Circular Táctil**: Eventos optimizados vía `pointerdown` con respuesta háptica (`navigator.vibrate`) y guarda de 500ms contra eventos sintéticos fantasma.
-  - Exportación de backups cifrados con **AES-GCM (256 bits)** protegidos por contraseña, con integración directa a **Google Drive**.
-- **Diseño de Interfaz Móvil sin Truncamiento**: Subnavegación vertical tipo tarjetas/fichas en cuadrícula de 3 columnas que garantiza lectura completa y cero truncamiento tipográfico (`...`) en cualquier resolución de pantalla (desde iPhone SE hasta 16 Pro Max).
-- **Motor de Gráficos Nativo**: Visualizaciones de línea, barra, donut y stacked trends renderizadas directamente en SVG/Canvas sin librerías externas pesadas.
-- **Deep Linking y Atajos de iOS**: Soporte para parámetros URL en la PWA que habilitan captura instantánea de gastos en 1 segundo vía el Botón de Acción del iPhone o Siri Shortcuts.
+- **Local-first sin concesiones**: cero frameworks, cero bundlers, cero build step. HTML/CSS/JS plano en módulos IIFE cargados en un orden explícito. Todo el estado vive en el almacenamiento local del dispositivo; los datos financieros nunca tocan un servidor propio.
+- **Una base de código, dos plataformas**: la app de iPhone es un shell de **Capacitor** que empaqueta exactamente los mismos archivos de la PWA, sin fork. Las diferencias reales viven en plugins nativos pequeños:
+  - **Google Sign-In nativo** con restauración silenciosa desde el Keychain, porque Google bloquea su flujo web dentro de WebViews de terceros.
+  - **Face ID / Touch ID** vía `LocalAuthentication` como alternativa al PIN, nunca como recuperación.
+  - **Almacenamiento estable**: copia atómica de las claves financieras fuera de WebKit y restauración automática si iOS rota el almacenamiento del WebView.
+  - **Deep links pendientes**: la URL de un Atajo que llega en arranque en frío se guarda hasta que la interfaz está lista para consumirla.
+- **Nunca confiar ciegamente en una extracción**: ningún importador escribe directo. Todo pasa por una pantalla de revisión editable con control de duplicados por cuenta + fecha + moneda + monto y un *fingerprint* canónico que normaliza acentos, puntuación y espacios.
+- **IA como último recurso, no como default**: los PDFs con texto (incluidos los protegidos con contraseña) se leen **localmente** con `pdf.js` y reconstrucción posicional de columnas; las imágenes pasan por OCR dedicado; un LLM (Claude Haiku, Gemini u OpenAI con *Bring-Your-Own-Key*) solo entra con confirmación explícita y salida estructurada. Los resultados se cachean por hash SHA-256 del archivo para no pagar dos veces.
+- **Formatos enseñables en lugar de código**: un correo o CSV nuevo se enseña con 2–5 ejemplos. La definición resultante son datos (delimitadores y columnas, nunca código ejecutable), se valida contra todos los ejemplos antes de activarse, tiene versiones recuperables y viaja en los backups.
+- **Parsers declarativos**: los extractos tabulares se describen con esquemas JSON (columnas, formato de fecha, convención de signo, moneda, saldo corrido) ejecutados por un motor agnóstico, con validación aritmética contra el saldo impreso.
+- **Conciliación como auditoría, no como "editar saldo"**: un cierre exige diferencia menor a un centavo, guarda los IDs incluidos y se invalida en cascada ante cambios retroactivos de fecha, monto o moneda. Los movimientos pendientes se arrastran al siguiente cierre.
+- **Machine Learning local**: clasificador Naive Bayes con n-gramas, limpieza de ruido bancario, guardrails de *cold start* y margen de decisión mínimo. Las reglas explícitas del usuario siempre tienen precedencia.
+- **Transferencias internas**: emparejamiento voraz 1:1 con tolerancia a comisiones y tipos de cambio históricos. La autovinculación solo aplica con certeza total y se puede deshacer en un toque.
+- **Backups sin pérdida**: exportación cifrada con **AES-GCM** (clave derivada de contraseña), subida opcional a Google Drive con scope `drive.file`, backup automático al pasar a segundo plano y **fusión de tres vías** para combinar dispositivos sin reemplazar todo.
+- **Quirks reales de WebKit/iOS diagnosticados en el dispositivo**: `env(safe-area-inset-*)` en `0` durante el primer layout de una PWA en arranque en frío (resuelto con `max()` a un piso de hardware), destello blanco en modo oscuro y gestos de cierre de *sheets* que competían con el scroll interno.
+- **Motor de gráficos propio**: línea, barras, donut y tendencias apiladas en SVG, posicionadas por tiempo real (no por índice) y con tooltips acotados al contenedor de la app.
 
 ---
 
 ## ✨ Módulos y Funcionalidades
 
-### 1. Resumen (`Dashboard`)
-- KPIs de flujo neto y presupuesto disponible por moneda (PEN / USD / Combinado).
-- Widget de próximos compromisos a 14 días con resolución inteligente contra transacciones bancarias.
-- Gráfico de gasto histórico de 6/12 meses, tendencias multi-mes apiladas y donut interactivo con filtrado contextual.
-- Proyección de saldo a 45 días con alertas de umbral mínimo de seguridad.
-- Filosofía **"Págate Primero"**: deducción opcional del ahorro mensual programado directamente del saldo disponible neto.
+### 1. Resumen
+- **Flujo neto** del periodo: lo que realmente entró y salió de las cuentas no-tarjeta, separado del gasto devengado con tarjeta.
+- Control diario: extractos listos para conciliar, saldos pendientes y últimos lotes importados (con corrección de año en un paso).
+- Próximos compromisos a 14 días resueltos contra movimientos reales.
+- Gasto histórico de 6/12 meses, tendencias apiladas por categoría y donut interactivo.
+- Proyección de saldo a 45 días con umbral mínimo de seguridad y simulador.
+- Reporte mensual imprimible (PDF) y exportación CSV.
 
-### 2. Transacciones (`Transactions`)
-- Búsqueda instantánea multi-criterio y filtros unificados por cuenta, categoría y moneda.
-- Modo de **Selección Múltiple y Edición Masiva** para recategorización, modificación de notas o borrado seguro en lote con barra de acciones inferior.
-- Inbox de triage con badge en tiempo real (`🔔 N por revisar`) y detección inteligente de duplicados históricos con opción de descartar sospechas legítimas.
-- Conciliación contable por cuenta/moneda y detección automática de transferencias internas vinculadas.
+### 2. Movimientos
+- Búsqueda instantánea y filtros por cuenta, categoría, mes, sin revisar o sin tag.
+- Inbox de revisión con badge en tiempo real y triage rápido.
+- Selección múltiple y edición masiva atómica (categoría, tag, notas, cuenta, revisión, borrado) con aviso para periodos ya conciliados.
+- Último lote importado editable en una sola ventana.
 
-### 3. Patrimonio (`Accounts`)
-- **Cuentas**: Saldos calculados, reconciliación con extractos bancarios y gráficos de balance histórico.
-- **Deudas**: Monitoreo de líneas de crédito, cálculo de intereses reales (TEA/APR) y fechas de corte/pago.
-- **Patrimonio Neto**: Consolidación total de activos líquidos, inventarios coleccionables y pasivos.
-- **Coleccionables TCG en Alta Definición**: Portafolio de cartas con carrusel visual de ítems más valiosos, desglose por set y actualización automática a imágenes HD (1000x1000 px).
+### 3. Patrimonio
+- **Cuentas**: saldo proyectado, gráfico histórico, estado de conciliación y día de corte configurable.
+- **Deudas**: TEA/APR, mínimos, fechas de pago, conciliación por tarjeta y moneda.
+- **Patrimonio neto** consolidado en USD con historial.
+- **Otros activos**: snapshots de valor para cualquier activo y detalle ítem por ítem para colecciones TCG (Top 5 en HD, distribución por expansión, actualización de precios de mercado).
 
-### 4. Plan (`Plan`)
-- **Calendario Financiero Unificado**: Vista Grid mensual y Agenda con clasificación semántica y cromática (ingresos fijos, gastos fijos, habituales previstos, cuotas de deuda y metas).
-- **Conciliación con Monto Real**: Adopción del valor bancario exacto cobrado conservando la referencia del estimado original.
-- **KPIs Interactivos con Modales de Desglose**: Perforación directa desde las tarjetas de Ingresos, Gastos Previstos, Flujo Neto y Pendientes al listado cronológico de transacciones asociadas.
-- **Simulador "¿Qué pasa si...?"**: Evaluación de impacto de gastos extraordinarios con detección preventiva de sobregiro y sugerencia de fecha segura.
-- **Metas de Ahorro**: Asignación prioritaria sobre el disponible mensual y cálculo de ritmo sugerido de ahorro.
-- **Simulador Avalancha**: Comparativa matemática de ahorro en intereses priorizando deudas por costo financiero.
+### 4. Plan
+- **Calendario financiero** mensual y agenda con colores por tipo de compromiso, adopción del monto real cobrado y recordatorios de cierre de estado de cuenta.
+- **Metas de ahorro** con ritmo sugerido y "Págate primero".
+- **Deudas & Avalancha** con presets de pago y trade-off frente a las metas.
+- **Simulador "¿Qué pasa si...?"** con diagnóstico de sobregiro y fecha segura.
 
-### 5. Configuración e Importación (`Import & Settings`)
-- **Importadores Multimodales**: CSV/Excel declarativo, capturas/PDFs vía OCR/IA con bypass de IA directa y sincronización con Gmail API vía OAuth2.
-- **Auto-vinculación de Transferencias**: Configuración de enlace automático de transacciones y visor de historial con opción de desvincular en 1 tap.
-- **Generador de Parsers con IA**: Creación guiada de esquemas de extracción a partir de archivos de muestra.
-- **Gestión de Datos**: Calidad de datos, optimización de cuota de almacenamiento local y respaldos cifrados en Google Drive.
+### 5. Configuración e importación
+- **Importar**: CSV/Excel con detección automática de banco y cuenta, PDF protegido leído localmente, foto/PDF escaneado vía OCR → IA, y sincronización con Gmail (correos de banco y reportes Excel adjuntos de Yape).
+- **Formatos de importación** enseñables por correo o tabla.
+- **Atajos de iOS**: captura manual desde Siri / botón de acción y automática desde pagos con Apple Pay.
+- Reglas de categorización, reglas de tag (planes recurrentes), calidad de datos y reglas sugeridas.
+- Backups cifrados locales y en Drive, fusión inteligente y seguridad (PIN, Face ID).
 
 ---
 
@@ -170,22 +185,24 @@ Los gestores de finanzas comerciales convencionales (Mint, YNAB, hojas de cálcu
 
 | Capa | Tecnologías |
 | :--- | :--- |
-| **Frontend Core** | HTML5, CSS3 moderno (Custom Properties, Backdrop Filter, Safe Areas), JavaScript ES2022 Vanilla (sin frameworks ni bundlers) |
-| **Persistencia Local** | `localStorage` API con verificación de cuota e integridad referencial |
-| **Seguridad** | Web Crypto API (`PBKDF2`, `AES-GCM`, `SHA-256`), App Lock por inactividad y anti-destello |
-| **Integraciones & Auth** | Google Identity Services (OAuth2 en cliente para Gmail y Drive), Cloudflare Workers (Proxy serverless efímero para IA) |
-| **Procesamiento de Docs** | `pdf.js` (renderizado local), Google Vision OCR, Claude Haiku (Anthropic API con tool calling) |
-| **Testing** | Node.js Test Suite nativa (11 suites automatizadas cubriendo cálculo financiero, parsers, ML y seguridad) |
+| **Frontend Core** | HTML5, CSS3 moderno (Custom Properties, Safe Areas, `@media print`), JavaScript ES2022 Vanilla, sin frameworks ni bundlers |
+| **App nativa** | Capacitor (iOS), plugins Swift propios: almacenamiento estable, biometría, deep links y restauración de Google Sign-In |
+| **Persistencia** | `localStorage` con verificación de cuota, integridad referencial y copia nativa en iOS |
+| **Seguridad** | Web Crypto API (`PBKDF2` 250 000 iteraciones, `AES-GCM`, `SHA-256`), `LocalAuthentication` en iOS |
+| **Integraciones** | Google Identity Services / Sign-In nativo (Gmail y Drive, OAuth en el cliente), Cloudflare Workers (proxy sin estado para OCR/IA) |
+| **Procesamiento de documentos** | `pdf.js` local con reconstrucción posicional, SheetJS, Google Vision OCR, Claude Haiku / Gemini / OpenAI con salidas estructuradas |
+| **Testing** | 18 suites en Node.js (cálculo financiero, parsers, conciliación, ML, seguridad, backups, deep links) + smoke test de UI con Puppeteer |
 
 ---
 
 ## 👨‍💻 Rol y Desarrollo
 
-Diseño y desarrollo end-to-end por **Álvaro Oliveros**:
-- Definición de arquitectura *local-first* y diseño de experiencia de usuario (UI/UX) móvil y desktop.
-- Implementación de los motores de cálculo financiero (amortización de deuda, proyección de flujo de caja, reconciliación contable y metas de ahorro).
-- Construcción del motor de parsers declarativos y clasificador de machine learning local.
-- Desarrollo de la suite completa de pruebas unitarias y de integración.
+Diseño y desarrollo end-to-end por **Alvaro Oliveros**:
+- Arquitectura *local-first* y diseño de experiencia móvil y desktop.
+- Motores de cálculo financiero: amortización, proyección de flujo de caja, conciliación contable, presupuestos con rollover y metas de ahorro.
+- Pipeline de importación por capas, motor de parsers declarativos, formatos enseñables y clasificador de machine learning local.
+- Shell nativo de iOS con plugins propios en Swift.
+- Suite completa de pruebas unitarias, de integración y de UI.
 
 ---
 
