@@ -1,8 +1,10 @@
 <p align="center">
-  <img src="logo.png" alt="Chanchito Logo" width="160">
+  <img src="logo.png" alt="Logo de Faro" width="160">
 </p>
 
-<h1 align="center">Chanchito</h1>
+<h1 align="center">Faro</h1>
+
+<p align="center"><sub>Antes llamada Chanchito.</sub></p>
 
 <p align="center">
   <strong>App de finanzas personales local-first — sin backend, sin base de datos externa, con privacidad total y respaldos cifrados. PWA instalable y app nativa para iPhone a partir del mismo código.</strong>
@@ -54,7 +56,7 @@ _Todas las cifras, saldos, comercios y movimientos de estas capturas son **datos
   <tr>
     <td valign="top"><sub><strong>Revisión editable.</strong> CSV/Excel, PDF, foto y Gmail terminan siempre aquí antes de guardar. Detecta duplicados por cuenta + fecha + monto aunque la descripción cambie entre fuentes.</sub></td>
     <td valign="top"><sub><strong>Formatos enseñables.</strong> Enseñas un correo o un CSV nuevo con 2–5 ejemplos, marcas los campos y se prueba contra todos antes de activarse. Sin código, sin IA, con versiones.</sub></td>
-    <td valign="top"><sub><strong>Captura desde Apple Pay.</strong> Un Atajo de iOS dispara <code>chanchito://capture</code> con comercio y monto en cada pago con Wallet; la app abre el registro ya prellenado.</sub></td>
+    <td valign="top"><sub><strong>Captura desde Apple Pay.</strong> Un Atajo de iOS dispara <code>faro://capture</code> con comercio y monto en cada pago con Wallet; la app abre el registro ya prellenado.</sub></td>
   </tr>
 </table>
 
@@ -113,7 +115,7 @@ Los gestores de finanzas comerciales (Mint, YNAB, hojas de cálculo) tienen limi
 
 ## ✅ La Solución
 
-**Chanchito** es una Progressive Web App construida a medida con arquitectura *local-first*, empaquetada también como app nativa de iOS:
+**Faro** es una Progressive Web App construida a medida con arquitectura *local-first*, empaquetada también como app nativa de iOS:
 - **Flujo de caja y presupuestos**: KPIs por moneda, presupuestos con historial y rollover, ritmo de gasto (pacing).
 - **Plan financiero predictivo**: calendario unificado, conciliación automática contra movimientos reales, proyección a 45 días y simulador *"¿Qué pasa si...?"*.
 - **Gestor de deudas**: calculadora de amortización verificada y simulador Avalancha.
@@ -192,6 +194,7 @@ Los gestores de finanzas comerciales (Mint, YNAB, hojas de cálculo) tienen limi
 | **Integraciones** | Google Identity Services / Sign-In nativo (Gmail y Drive, OAuth en el cliente), Cloudflare Workers (proxy sin estado para OCR/IA) |
 | **Procesamiento de documentos** | `pdf.js` local con reconstrucción posicional, SheetJS, Google Vision OCR, Claude Haiku / Gemini / OpenAI con salidas estructuradas |
 | **Testing** | 18 suites en Node.js (cálculo financiero, parsers, conciliación, ML, seguridad, backups, deep links) + smoke test de UI con Puppeteer |
+| **Identidad visual** | Faro: logo vectorial de un faro (PNG, AppIcon de iOS claro/oscuro/tinted y splash generados desde una sola geometría), paleta petróleo + luz ámbar con tokens CSS para claro y oscuro, tipografía Figtree con cifras tabulares |
 
 ---
 
